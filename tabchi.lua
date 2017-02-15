@@ -653,16 +653,11 @@ Bia pv]]
     end
     return add(data.chat_.id_)
   elseif data.ID == "UpdateOption" and data.name_ == "my_id" then
-    if redis:get("tabchi:" .. tostring(tabchi_id) .. ":gotchats") then
-      return nil
-    else
-      tdcli_function({
-        ID = "GetChats",
-        offset_order = "9223372036854775807",
-        offset_chat_id_ = 0,
-        limit_ = 500000
-      }, dl_cb, nil)
-      redis:setex("tabchi:" .. tostring(tabchi_id) .. ":gotchats", 2160000, true)
-    end
+    tdcli_function({
+      ID = "GetChats",
+      offset_order_ = "9223372036854775807",
+      offset_chat_id_ = 0,
+      limit_ = 20
+    }, dl_cb, nil)
   end
 end
